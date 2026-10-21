@@ -23,6 +23,12 @@ CREDENCIAIS = {
     "@n8n/n8n-nodes-langchain.embeddingsOllama": {"ollamaApi": {"id": "aula10Ollama0001", "name": "Ollama"}},
 }
 
+COM_WEBHOOK = {
+    "n8n-nodes-base.formTrigger",
+    "n8n-nodes-base.form",
+    "@n8n/n8n-nodes-langchain.chatTrigger",
+}
+
 
 def no(nome, tipo, versao, posicao, parametros):
     item = {
@@ -35,6 +41,10 @@ def no(nome, tipo, versao, posicao, parametros):
     }
     if tipo in CREDENCIAIS:
         item["credentials"] = CREDENCIAIS[tipo]
+    # Nos que abrem endereco web precisam de webhookId; sem ele o n8n monta
+    # o caminho com o id do workflow e o Form Path deixa de valer.
+    if tipo in COM_WEBHOOK:
+        item["webhookId"] = str(uuid.uuid5(uuid.NAMESPACE_URL, "aula10/webhook/" + nome))
     return item
 
 

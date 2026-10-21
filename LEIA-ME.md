@@ -32,6 +32,10 @@ testes.md                   Tabela dos 8 cenários da seção 6.2
 | `Groq` | Groq | API Key |
 | `Ollama` | Ollama | Base URL `http://host.docker.internal:11434` |
 
+Os JSON referenciam as credenciais pelos ids `aula10Groq000001` e `aula10Ollama0001`.
+Numa instalação sem esses ids, o n8n importa normalmente e pede para escolher a credencial
+em cada nó de modelo e de embeddings.
+
 ## Data table `chamados`
 
 Colunas texto: `protocolo`, `nome`, `email`, `descricao`, `registrado_em`.
