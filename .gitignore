@@ -1,0 +1,8 @@
+# Chaves e variáveis de ambiente nunca entram no repositório
+.env
+*.env
+# Arquivos do sistema e do editor
+.DS_Store
+Thumbs.db
+.vscode/
+__pycache__/
